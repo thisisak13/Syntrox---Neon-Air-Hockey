@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background subtle gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stopColor="#081020" />
+      <stop offset="60%" stopColor="#040712" />
+      <stop offset="100%" stopColor="#02040a" />
+    </radialGradient>
+
+    <!-- Diamond outer glow -->
+    <filter id="glowDiamond" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur1" />
+      <feGaussianBlur stdDeviation="16" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Lightning Bolt glow -->
+    <filter id="glowBolt" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="blur1" />
+      <feGaussianBlur stdDeviation="15" result="blur2" />
+      <feGaussianBlur stdDeviation="28" result="blur3" />
+      <feMerge>
+        <feMergeNode in="blur3" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark Background Canvas -->
+  <rect width="512" height="512" fill="url(#bgGrad)" />
+
+  <!-- Faint Sci-Fi Grid lines matching uploaded image -->
+  <g stroke="#00f0ff" stroke-width="1" stroke-opacity="0.07">
+    <line x1="100" y1="0" x2="100" y2="512" />
+    <line x1="412" y1="0" x2="412" y2="512" />
+    <line x1="0" y1="100" x2="512" y2="100" />
+    <line x1="0" y1="412" x2="512" y2="412" />
+  </g>
+
+  <!-- Diamond subtle ambient back-glow -->
+  <rect
+    x="115"
+    y="115"
+    width="282"
+    height="282"
+    rx="76"
+    transform="rotate(45 256 256)"
+    fill="#00f0ff"
+    opacity="0.08"
+    filter="url(#glowDiamond)"
+  />
+
+  <!-- Rounded Diamond Outer Border -->
+  <rect
+    x="115"
+    y="115"
+    width="282"
+    height="282"
+    rx="76"
+    transform="rotate(45 256 256)"
+    fill="#050814"
+    stroke="#00f0ff"
+    stroke-width="7"
+    filter="url(#glowDiamond)"
+  />
+
+  <!-- Neon Cyan Lightning Bolt in Center -->
+  <path
+    d="M 262 178 L 184 292 L 322 272 L 250 376"
+    fill="none"
+    stroke="#00f0ff"
+    stroke-width="38"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#glowBolt)"
+  />
+</svg>

@@ -1,0 +1,6 @@
+{
+  "name": "SYNTROX — Neon Air Hockey",
+  "description": "A premium futuristic arcade air hockey game with realistic physics, intelligent multi-tier AI, responsive mobile and desktop controls, and live leaderboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
