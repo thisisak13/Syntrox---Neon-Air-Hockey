@@ -47,7 +47,7 @@ export class LeaderboardService {
     stats: MatchStats
   ): { entry: LeaderboardEntry; rank: number } {
     const score = this.calculatePerformanceScore(difficulty, stats);
-    const result = stats.playerScore >= 7 ? 'VICTORY' : 'DEFEAT';
+    const result = stats.playerScore > stats.aiScore ? 'VICTORY' : 'DEFEAT';
     const cleanName = playerName.trim() || this.getPlayerName() || 'PLAYER';
 
     const newEntry: LeaderboardEntry = {
@@ -79,7 +79,7 @@ export class LeaderboardService {
   }
 
   public static calculatePerformanceScore(difficulty: DifficultyMode, stats: MatchStats): number {
-    const isWin = stats.playerScore >= 7;
+    const isWin = stats.playerScore > stats.aiScore;
 
     // Difficulty base multipliers
     const diffMultipliers: Record<DifficultyMode, number> = {
